@@ -60,4 +60,14 @@ private boolean  estado;
         }
     }
     
+    public String direccionAscensor (int llamada)throws Exception{
+        if( llamada > pisoOrigen) {
+            llamadaAscensor(llamada,1);
+            return "El ascensor sube";
+        }else{
+            llamadaAscensor(llamada,1);
+            return "El ascensor baja";
+        }
+        
+    }
 }

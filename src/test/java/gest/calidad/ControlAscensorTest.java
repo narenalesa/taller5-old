@@ -39,9 +39,8 @@ public class ControlAscensorTest {
         
         exception.expect(Exception.class);
         controlAscensor.verificarDestino(1);
-        //assertEquals("Destino igual a origen: 1,1",controlAscensor.verificarDestino(1) );
-        //assertEquals("verificado",controlAscensor.verificarDestino(2) );
-                
+                        
+        
     }
     
     @Test
@@ -50,6 +49,16 @@ public class ControlAscensorTest {
         assertEquals("puede subir de inmediato", controlAscensor.llamadaAscensor(1,1));
         assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(2,1));
         assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(3,1));
+        
+    }
+    
+    @Test
+    public void siPrimeroSubeLuegoBaja ()throws Exception{
+        
+        assertEquals("El ascensor sube", controlAscensor.direccionAscensor(3));
+        assertEquals("El ascensor baja", controlAscensor.direccionAscensor(1));
+        assertEquals("El ascensor sube", controlAscensor.direccionAscensor(2));
+        
         
     }
     
