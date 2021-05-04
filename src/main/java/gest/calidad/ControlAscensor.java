@@ -8,6 +8,7 @@ private final int PISOSMAX = 3;
 private final int PISOSMIN = 1;
 private int origen;
 private int pisoOrigen;
+private int pisoDestino;
 private boolean  estado;
  
     public void crearPersona () {
@@ -37,16 +38,26 @@ private boolean  estado;
         
     }
     
-    public String llamadaAscensor(int llamada){
+    public String llamadaAscensor(int llamada, int personas)throws Exception{
         
+        verificarPersonas(personas);
         if (pisoOrigen == llamada) {
             estado = true;
             return "puede subir de inmediato";
         }else {
             pisoOrigen = llamada;
+            estado = true;
             return "ascensor esta subiendo a su piso";
         }
         
+    }
+    
+    public void verificarPersonas (int cantidadPersonas) throws Exception{
+        
+        if(cantidadPersonas > 1) {
+            System.out.println("Capacidad de ascensor excedida");
+            throw new Exception ("Capacidad de ascensor excedida");
+        }
     }
     
 }

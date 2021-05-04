@@ -23,6 +23,14 @@ public class ControlAscensorTest {
         controlAscensor.posicionarAscensor();
     }
     
+    @Test
+    public void ascensorSoloTransporta1Persona () throws Exception{
+        
+        exception.expect(Exception.class);
+        controlAscensor.verificarPersonas(2);
+        
+        
+    }
 
       
     @Test
@@ -37,11 +45,13 @@ public class ControlAscensorTest {
     }
     
     @Test
-    public void siPrimeraPersonaEnPiso1 () {
+    public void siPrimeraPersonaEnPiso1 () throws Exception{
             
-        assertEquals("puede subir de inmediato", controlAscensor.llamadaAscensor(1));
-        assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(2));
-        assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(3));
+        assertEquals("puede subir de inmediato", controlAscensor.llamadaAscensor(1,1));
+        assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(2,1));
+        assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(3,1));
         
     }
+    
+    
 }
