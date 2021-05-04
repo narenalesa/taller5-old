@@ -15,19 +15,33 @@ public class ControlAscensorTest {
     
     @Rule
     public ExpectedException exception = ExpectedException.none();
+    
     @Before
     public void before(){
         controlAscensor = new ControlAscensor();
+        controlAscensor.crearPersona();
+        controlAscensor.posicionarAscensor();
     }
     
 
+      
     @Test
-    public void crearPersonaEnPisoAlAzar (){
+    public void pisoOrigenNoEsIgualAPisoDestino () throws Exception{
+        
+        
+        exception.expect(Exception.class);
+        controlAscensor.verificarDestino(1);
+        //assertEquals("Destino igual a origen: 1,1",controlAscensor.verificarDestino(1) );
+        //assertEquals("verificado",controlAscensor.verificarDestino(2) );
+                
+    }
     
-    //logica de la prueba
-    
-    //verificacion o assert
-    controlAscensor.crearPersona();
-    
+    @Test
+    public void siPrimeraPersonaEnPiso1 () {
+            
+        assertEquals("puede subir de inmediato", controlAscensor.llamadaAscensor(1));
+        assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(2));
+        assertEquals("ascensor esta subiendo a su piso", controlAscensor.llamadaAscensor(3));
+        
     }
 }
